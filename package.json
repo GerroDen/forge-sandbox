@@ -16,7 +16,6 @@
     "@forge/bridge": "^2.2.1",
     "@forge/resolver": "^1.4.3",
     "@forge/ui": "^1.1.0",
-    "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
