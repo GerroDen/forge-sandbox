@@ -1,10 +1,10 @@
+import { invoke } from "@forge/bridge"
 import React, {
     useEffect,
     useState,
 } from "react"
 import logo from "./logo.svg"
 import "./App.css"
-import { invoke } from "@forge/bridge"
 import { Test } from "./components/test"
 
 export default function App() {
@@ -18,6 +18,7 @@ export default function App() {
 
     useEffect(() => {
         loadData().catch(() => {
+            // ignore
         })
     }, [])
 

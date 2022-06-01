@@ -1,0 +1,12 @@
+{
+  "name": "react-sandbox-forge",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "@forge/resolver": "^1.4.3",
+    "react-sandbox-functions": "*"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2"
+  }
+}
