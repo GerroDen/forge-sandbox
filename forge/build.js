@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-import { dirname, resolve } from "path";
+import { dirname, basename, resolve } from "path";
 import { fileURLToPath } from "url";
 import { build } from "esbuild";
-import { copyFile, cp, readFile, writeFile } from "fs/promises";
+import { copyFile, cp, readFile, watch, writeFile } from "fs/promises";
 
-const entryPoint = "src/index.ts";
-const manifestFilename = "manifest.yml";
-const outDir = "dist";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootPath = resolve(__dirname);
+const outDir = "dist";
+const entryPoint = resolve(rootPath, "src/index.ts");
+const manifestFile = resolve(rootPath, "manifest.yml");
 const webOutDir = resolve(rootPath, "../web/dist");
 
 const externalLibs = ["^@forge/"];
@@ -37,40 +37,60 @@ class TrackExternalDependencies {
   }
 }
 
-const trackExternalDependencies = new TrackExternalDependencies();
+async function bundle() {
+  console.info("bunlding project");
+  const trackExternalDependencies = new TrackExternalDependencies();
+  await Promise.all([
+    await build({
+      entryPoints: [entryPoint],
+      bundle: true,
+      outdir: resolve(rootPath, outDir, "src"),
+      format: "esm",
+      plugins: [trackExternalDependencies.plugin],
+    }),
+    await copyFile(
+      manifestFile,
+      resolve(rootPath, outDir, basename(manifestFile))
+    ),
+    await cp(webOutDir, resolve(rootPath, outDir, "web"), { recursive: true }),
+  ]);
+  console.log(
+    `Found externals: ${trackExternalDependencies.foundExternals.join(", ")}`
+  );
+  const basePackageJsonString = await readFile(
+    resolve(rootPath, "package.json"),
+    { encoding: "utf8" }
+  );
+  const basePackageJson = JSON.parse(basePackageJsonString);
+  const packageJson = {
+    name: "forge",
+    private: true,
+    version: "0.0.0",
+    dependencies: Object.fromEntries(
+      trackExternalDependencies.foundExternals.map((externalLib) => [
+        externalLib,
+        basePackageJson.dependencies[externalLib],
+      ])
+    ),
+  };
+  await writeFile(
+    resolve(outDir, "package.json"),
+    JSON.stringify(packageJson),
+    {
+      encoding: "utf8",
+    }
+  );
+}
+
+async function bundleOnChange(filename) {
+  const watcher = watch(filename, { recursive: true });
+  for await (const _ of watcher) await bundle();
+}
+
+await bundle();
 await Promise.all([
-  await build({
-    entryPoints: [resolve(rootPath, entryPoint)],
-    bundle: true,
-    outdir: resolve(rootPath, outDir, "src"),
-    format: "esm",
-    plugins: [trackExternalDependencies.plugin],
-  }),
-  await copyFile(
-    resolve(rootPath, manifestFilename),
-    resolve(rootPath, outDir, manifestFilename)
-  ),
-  await cp(webOutDir, resolve(rootPath, outDir, "web"), { recursive: true }),
+  bundleOnChange(entryPoint),
+  bundleOnChange(manifestFile),
+  bundleOnChange(webOutDir),
+  () => console.info("watching for changes"),
 ]);
-console.log(
-  `Found externals: ${trackExternalDependencies.foundExternals.join(", ")}`
-);
-const basePackageJsonString = await readFile(
-  resolve(rootPath, "package.json"),
-  { encoding: "utf8" }
-);
-const basePackageJson = JSON.parse(basePackageJsonString);
-const packageJson = {
-  name: "forge",
-  private: true,
-  version: "0.0.0",
-  dependencies: Object.fromEntries(
-    trackExternalDependencies.foundExternals.map((externalLib) => [
-      externalLib,
-      basePackageJson.dependencies[externalLib],
-    ])
-  ),
-};
-await writeFile(resolve(outDir, "package.json"), JSON.stringify(packageJson), {
-  encoding: "utf8",
-});
