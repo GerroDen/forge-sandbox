@@ -1,5 +1,5 @@
 import Resolver from "@forge/resolver"
-import { getText } from "functions/src/get-text"
+import { getText } from "@/lib/get-text"
 
 const resolver = new Resolver()
 

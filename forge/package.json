@@ -3,12 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --outdir=dist && cp manifest.yml dist/ && cp -R ../web/dist dist/web"
+    "build": "esbuild src/index.ts --bundle --external:@forge/* --outdir=dist/src --format=esm && cp manifest.yml dist/ && cp -R ../web/dist dist/web"
   },
   "dependencies": {
     "@forge/resolver": "^1.4.3",
     "esbuild": "^0.14.39",
-    "functions": "*",
     "web": "*"
   },
   "devDependencies": {

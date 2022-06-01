@@ -1,9 +1,17 @@
 {
   "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
     "lib": [
-      "ESNext"
+      "esnext"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
     "src"
