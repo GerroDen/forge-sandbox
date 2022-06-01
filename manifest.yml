@@ -1,0 +1,17 @@
+modules:
+  jira:projectPage:
+    - key: dashboard-hello-world-project-page
+      resource: main
+      resolver:
+        function: resolver
+      title: dashboard
+  function:
+    - key: my-function
+      handler: functions.index.run
+    - key: resolver
+      handler: functions.index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  id: ari:cloud:ecosystem::app/d514accc-9103-4507-ac09-016210a35de8
