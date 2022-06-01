@@ -6,8 +6,6 @@ modules:
         function: resolver
       title: dashboard
   function:
-    - key: my-function
-      handler: functions.index.run
     - key: resolver
       handler: functions.index.handler
 resources:
