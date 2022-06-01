@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "./build.js",
-		"watch": "chokidar ./src/**/*.ts"
+		"watch": "./watch.js"
 	},
 	"dependencies": {
 		"@forge/resolver": "^1.4.3",

@@ -5,7 +5,8 @@
 		"build": {
 			"dependsOn": ["^build"]
 		},
-		"dev": {
+		"watch": {
+			"dependsOn": ["^watch"],
 			"cache": false
 		}
 	}

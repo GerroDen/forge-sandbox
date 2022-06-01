@@ -1,10 +1,16 @@
 #!/usr/bin/env node
 import chokidar from "chokidar";
-import { bundle } from "./build.js";
+import { bundle, manifestFile, webOutDir } from "./build.js";
 
-const paths = ["src/**/*.ts", "manifest.yml", "tsconfig.json", "package.json"];
+const paths = [
+  "src/**/*.ts",
+  manifestFile,
+  "tsconfig.json",
+  "package.json",
+  `${webOutDir}/**/*`,
+];
 await bundle();
-console.log(`watching changes on ${paths.join(", ")}`);
-chokidar.watch(paths).on("change", async () => {
+console.log(`watching changes on ${paths.join(", ")}`, { ignoreInitial: true });
+chokidar.watch(paths).on("all", async () => {
   await bundle();
 });

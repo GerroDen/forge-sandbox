@@ -8,7 +8,8 @@
 		"web"
 	],
 	"scripts": {
-		"build": "turbo run build"
+		"build": "turbo run build",
+		"watch": "turbo run watch --parallel"
 	},
 	"devDependencies": {
 		"turbo": "^1.2.12"

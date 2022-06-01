@@ -8,6 +8,7 @@
     "lint": "eslint . --ext ts,tsx",
     "tsc-check": "tsc --noEmit",
     "build": "vite build",
+    "watch": "vite build --watch",
     "preview": "vite preview",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
