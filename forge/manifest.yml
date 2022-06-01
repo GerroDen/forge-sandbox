@@ -1,15 +1,15 @@
 modules:
   jira:projectPage:
     - key: dashboard
-      resource: main
+      resource: web
       resolver:
         function: resolver
       title: dashboard
   function:
     - key: resolver
-      handler: functions/src/index.handler
+      handler: index.handler
 resources:
-  - key: main
-    path: web/dist
+  - key: web
+    path: web
 app:
   id: ari:cloud:ecosystem::app/d514accc-9103-4507-ac09-016210a35de8

@@ -2,13 +2,13 @@
   "files": [],
   "references": [
     {
-      "path": "./forge/tsconfig.json"
+      "path": "./forge/tsconfig.ref.json"
     },
     {
-      "path": "./web/tsconfig.node.json"
+      "path": "./web/tsconfig.ref.json"
     },
     {
-      "path": "./functions/tsconfig.node.json"
+      "path": "./functions/tsconfig.ref.json"
     }
   ]
 }

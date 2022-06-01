@@ -1,5 +1,5 @@
 import Resolver from "@forge/resolver"
-import { getText } from "react-sandbox-functions/get-text"
+import { getText } from "functions/src/get-text"
 
 const resolver = new Resolver()
 

@@ -1,7 +1,8 @@
 {
-  "name": "react-sandbox-web",
+  "name": "web",
   "private": true,
   "version": "0.0.0",
+  "main": "./dist",
   "scripts": {
     "dev": "vite",
     "lint": "eslint . --ext ts,tsx",

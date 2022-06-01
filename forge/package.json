@@ -1,12 +1,21 @@
 {
-  "name": "react-sandbox-forge",
+  "name": "forge",
   "private": true,
   "version": "0.0.0",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --outdir=dist && cp manifest.yml dist/ && cp -R ../web/dist dist/web"
+  },
   "dependencies": {
     "@forge/resolver": "^1.4.3",
-    "react-sandbox-functions": "*"
+    "esbuild": "^0.14.39",
+    "functions": "*",
+    "web": "*"
   },
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.2"
+    "@tsconfig/node16": "^1.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.14.0",
+    "typescript": "^4.6.3"
   }
 }

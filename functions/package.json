@@ -1,7 +1,8 @@
 {
-  "name": "react-sandbox-functions",
+  "name": "functions",
   "private": true,
   "version": "0.0.0",
+  "main": "./src",
   "scripts": {
     "lint": "eslint . --ext ts",
     "tsc-check": "tsc --noEmit",
