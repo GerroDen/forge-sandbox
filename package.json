@@ -1,13 +1,13 @@
 {
-  "name": "forge-sandbox",
-  "private": true,
-  "version": "0.0.0",
-  "workspaces": [
-    "forge",
-    "functions",
-    "web"
-  ],
-  "scripts": {},
-  "dependencies": {},
-  "devDependencies": {}
+	"name": "forge-sandbox",
+	"private": true,
+	"version": "0.0.0",
+	"workspaces": [
+		"forge",
+		"functions",
+		"web"
+	],
+	"scripts": {},
+	"dependencies": {},
+	"devDependencies": {}
 }

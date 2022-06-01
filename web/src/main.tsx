@@ -6,7 +6,7 @@ import "./index.css";
 const elementById = document.getElementById("root");
 if (!elementById) throw new Error("missing root element for app");
 ReactDOM.createRoot(elementById).render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
