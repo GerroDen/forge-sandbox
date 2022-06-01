@@ -1,3 +1,17 @@
+# Scripts
+
+## Build
+
+```
+npm run build
+```
+
+## Watch
+
+```
+npm run watch
+```
+
 # Build chain
 
 ```
