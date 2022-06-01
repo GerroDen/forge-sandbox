@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { dirname, basename, resolve } from "path";
+import { basename, dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import { build } from "esbuild";
 import { copyFile, cp, readFile, watch, writeFile } from "fs/promises";
@@ -88,9 +88,12 @@ async function bundleOnChange(filename) {
 }
 
 await bundle();
-await Promise.all([
-  bundleOnChange(entryPoint),
-  bundleOnChange(manifestFile),
-  bundleOnChange(webOutDir),
-  () => console.info("watching for changes"),
-]);
+
+if (process.argv[1] === "--watch") {
+  await Promise.all([
+    bundleOnChange(entryPoint),
+    bundleOnChange(manifestFile),
+    bundleOnChange(webOutDir),
+    () => console.info("watching for changes"),
+  ]);
+}

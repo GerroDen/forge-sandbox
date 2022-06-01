@@ -7,7 +7,10 @@
 		"functions",
 		"web"
 	],
-	"scripts": {},
-	"dependencies": {},
-	"devDependencies": {}
+	"scripts": {
+		"build": "turbo run build"
+	},
+	"devDependencies": {
+		"turbo": "^1.2.12"
+	}
 }
