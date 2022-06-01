@@ -4,7 +4,8 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"build": "./build.js"
+		"build": "./build.js",
+		"watch": "chokidar ./src/**/*.ts"
 	},
 	"dependencies": {
 		"@forge/resolver": "^1.4.3",
@@ -14,6 +15,7 @@
 		"@tsconfig/node16": "^1.0.2",
 		"@typescript-eslint/eslint-plugin": "^5.25.0",
 		"@typescript-eslint/parser": "^5.25.0",
+		"chokidar": "^3.5.3",
 		"esbuild": "^0.14.39",
 		"eslint": "^8.14.0",
 		"eslint-config-prettier": "^8.5.0",

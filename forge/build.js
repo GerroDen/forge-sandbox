@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { basename, dirname, resolve } from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath, pathToFileURL } from "url";
 import { build } from "esbuild";
-import { copyFile, cp, readFile, watch, writeFile } from "fs/promises";
+import { copyFile, cp, readFile, writeFile } from "fs/promises";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootPath = resolve(__dirname);
@@ -37,8 +37,8 @@ class TrackExternalDependencies {
   }
 }
 
-async function bundle() {
-  console.info("bunlding project");
+export async function bundle() {
+  console.info("bundling project");
   const trackExternalDependencies = new TrackExternalDependencies();
   await Promise.all([
     await build({
@@ -82,18 +82,6 @@ async function bundle() {
   );
 }
 
-async function bundleOnChange(filename) {
-  const watcher = watch(filename, { recursive: true });
-  for await (const _ of watcher) await bundle();
-}
-
-await bundle();
-
-if (process.argv[1] === "--watch") {
-  await Promise.all([
-    bundleOnChange(entryPoint),
-    bundleOnChange(manifestFile),
-    bundleOnChange(webOutDir),
-    () => console.info("watching for changes"),
-  ]);
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  await bundle();
 }
