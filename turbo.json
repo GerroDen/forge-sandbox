@@ -1,13 +1,16 @@
 {
-	"$schema": "https://turborepo.org/schema.json",
-	"baseBranch": "origin/main",
-	"pipeline": {
-		"build": {
-			"dependsOn": ["^build"]
-		},
-		"watch": {
-			"dependsOn": ["^watch"],
-			"cache": false
-		}
-	}
+  "$schema": "https://turborepo.org/schema.json",
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "watch": {
+      "dependsOn": ["^watch"],
+      "cache": false
+    },
+    "lint": {
+      "outputs": []
+    }
+  }
 }

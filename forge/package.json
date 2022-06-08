@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "./build.js",
-    "lint": "eslint . --ext ts",
+    "lint": "npm-run-all lint:*",
+    "lint:eslint": "eslint . --ext ts",
+    "lint:types": "tsc --noEmit",
     "watch": "./watch.js"
   },
   "dependencies": {
