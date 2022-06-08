@@ -1,12 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
 
 const elementById = document.getElementById("root");
 if (!elementById) throw new Error("missing root element for app");
-ReactDOM.createRoot(elementById).render(
+ReactDOM.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
+  elementById
 );
