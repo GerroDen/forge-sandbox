@@ -1,0 +1,13 @@
+{
+  "name": "manifest",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": ""
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21",
+    "yaml": "^2.1.1"
+  }
+}

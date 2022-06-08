@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@forge/resolver": "^1.4.3",
+    "manifest": "*",
     "web": "*"
   },
   "devDependencies": {

@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"workspaces": [
 		"forge",
-		"functions",
+		"manifest",
 		"web"
 	],
 	"scripts": {

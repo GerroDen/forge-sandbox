@@ -8,7 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootPath = resolve(__dirname);
 const outDir = "dist";
 const entryPoint = resolve(rootPath, "src/index.ts");
-export const manifestFile = resolve(rootPath, "manifest.yml");
+export const manifestFile = resolve(rootPath, "../manifest/dist/manifest.yml");
 export const webOutDir = resolve(rootPath, "../web/dist");
 
 const externalLibs = ["^@forge/"];

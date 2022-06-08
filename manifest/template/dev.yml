@@ -1,0 +1,17 @@
+resources:
+  - key: web
+    tunnel:
+      port: 3000
+permissions:
+  external:
+    fetch:
+      backend:
+        - "*"
+      client:
+        - "*"
+  content:
+    scripts:
+      - unsafe-hashes
+      - unsafe-inline
+    styles:
+      - unsafe-inline

@@ -11,5 +11,3 @@ modules:
 resources:
   - key: web
     path: web
-app:
-  id: ari:cloud:ecosystem::app/d514accc-9103-4507-ac09-016210a35de8
