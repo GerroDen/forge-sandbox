@@ -1,6 +1,6 @@
 module.exports = {
     stories: [
-        "../src/web/**/*.stories.@(j|t)sx",
+        "../src/**/*.stories.@(j|t)sx",
     ],
     addons: [
         "@storybook/addon-essentials",
