@@ -48,11 +48,11 @@ export async function bundle() {
       format: "esm",
       plugins: [trackExternalDependencies.plugin],
     }),
+    await cp(webOutDir, resolve(rootPath, outDir, "web"), { recursive: true }),
     await copyFile(
       manifestFile,
       resolve(rootPath, outDir, basename(manifestFile))
     ),
-    await cp(webOutDir, resolve(rootPath, outDir, "web"), { recursive: true }),
   ]);
   console.log(
     `Found externals: ${trackExternalDependencies.foundExternals.join(", ")}`
