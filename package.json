@@ -8,6 +8,7 @@
 		"web"
 	],
 	"scripts": {
+		"dev": "turbo run dev",
 		"build": "turbo run build",
 		"lint": "turbo run lint",
 		"watch": "turbo run watch --parallel"
