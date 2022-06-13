@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "main": "./dist",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "lint": "npm-run-all lint:*",
     "lint:eslint": "eslint . --ext ts,tsx",
     "lint:css": "stylelint './src/**/*.{css,tsx}'",
