@@ -5,8 +5,14 @@
     "build": {
       "dependsOn": ["^build"]
     },
-    "watch": {
-      "dependsOn": ["^watch"],
+    "manifest#build": {
+      "dependsOn": ["$APP_ID", "$NODE_ENV"]
+    },
+    "web#build": {
+      "dependsOn": ["$NODE_ENV"]
+    },
+    "dev": {
+      "outputs": [],
       "cache": false
     },
     "lint": {
