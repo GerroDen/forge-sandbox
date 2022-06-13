@@ -11,7 +11,8 @@
 		"dev": "turbo run dev",
 		"build": "turbo run build",
 		"lint": "turbo run lint",
-		"watch": "turbo run watch --parallel"
+		"watch": "turbo run watch --parallel",
+		"tunnel": "turbo run build && cd forge/dist && npm i && forge tunnel"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.25.0",
