@@ -10,7 +10,6 @@
     "lint:css": "stylelint './src/**/*.{css,tsx}'",
     "lint:types": "tsc --noEmit",
     "build": "vite build",
-    "watch": "vite build --watch",
     "preview": "vite preview",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
