@@ -2,14 +2,15 @@
 import { basename, dirname, resolve } from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 import { build } from "esbuild";
-import { copyFile, cp, readFile, writeFile } from "fs/promises";
+import { copyFile, cp, mkdir, readFile, rm, writeFile } from "fs/promises";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootPath = resolve(__dirname);
 const outDir = "dist";
 const entryPoint = resolve(rootPath, "src/index.ts");
 export const manifestFile = resolve(rootPath, "../manifest/dist/manifest.yml");
-export const webOutDir = resolve(rootPath, "../web/dist");
+const webBundleDir = resolve(rootPath, "../web/dist");
+const webOutDir = resolve(rootPath, outDir, "web");
 
 const externalLibs = ["^@forge/"];
 
@@ -41,18 +42,19 @@ export async function bundle() {
   console.info("bundling project");
   const trackExternalDependencies = new TrackExternalDependencies();
   await Promise.all([
-    await build({
+    mkdir(resolve(rootPath, outDir), { recursive: true }),
+    build({
       entryPoints: [entryPoint],
       bundle: true,
       outdir: resolve(rootPath, outDir, "src"),
       format: "esm",
       plugins: [trackExternalDependencies.plugin],
     }),
-    await cp(webOutDir, resolve(rootPath, outDir, "web"), { recursive: true }),
-    await copyFile(
-      manifestFile,
-      resolve(rootPath, outDir, basename(manifestFile))
-    ),
+    (async () => {
+      await rm(webOutDir, { recursive: true, force: true });
+      await cp(webBundleDir, webOutDir, { recursive: true });
+    })(),
+    copyFile(manifestFile, resolve(rootPath, outDir, basename(manifestFile))),
   ]);
   console.log(
     `Found externals: ${trackExternalDependencies.foundExternals.join(", ")}`
@@ -62,24 +64,23 @@ export async function bundle() {
     { encoding: "utf8" }
   );
   const basePackageJson = JSON.parse(basePackageJsonString);
+  let dependencies = Object.fromEntries(
+    trackExternalDependencies.foundExternals.map((externalLib) => [
+      externalLib,
+      basePackageJson.dependencies[externalLib],
+    ])
+  );
   const packageJson = {
     name: "forge",
     private: true,
     version: "0.0.0",
-    dependencies: Object.fromEntries(
-      trackExternalDependencies.foundExternals.map((externalLib) => [
-        externalLib,
-        basePackageJson.dependencies[externalLib],
-      ])
-    ),
+    dependencies: dependencies,
   };
-  await writeFile(
-    resolve(outDir, "package.json"),
-    JSON.stringify(packageJson),
-    {
+  await Promise.all([
+    writeFile(resolve(outDir, "package.json"), JSON.stringify(packageJson), {
       encoding: "utf8",
-    }
-  );
+    }),
+  ]);
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
