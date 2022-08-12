@@ -20,6 +20,7 @@ if (isDevEnv) {
 }
 manifest = set(manifest, "app.id", `ari:cloud:ecosystem::app/${appId}`);
 await writeYaml(outFile, manifest);
+console.log(`wrote to file ${outFile}`);
 
 async function readYaml(file) {
   const content = await readFile(file, {
