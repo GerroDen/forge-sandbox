@@ -1,11 +1,5 @@
 import React, { useState } from "react";
 
-export const STYLE = `
-div {
-    background: pink;
-}
-`;
-
 export interface Props {
   foo: string;
   bar?: string;
