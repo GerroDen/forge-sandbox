@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "./watch.js",
     "build": "./build.js",
-    "lint": "npm-run-all lint:*",
-    "lint:eslint": "eslint . --ext ts",
-    "lint:types": "tsc --noEmit"
+    "dev": "./watch.js",
+    "lint": "npm-run-all 'lint:*'",
+    "lint:eslint": "eslint . --ext ts,cjs,js",
+    "lint:types": "tsc --noEmit",
+    "test": "jest"
   },
   "dependencies": {
     "@forge/resolver": "^1.4.3",

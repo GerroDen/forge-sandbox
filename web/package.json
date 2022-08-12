@@ -4,16 +4,17 @@
   "version": "0.0.0",
   "main": "./dist",
   "scripts": {
-    "dev": "vite --host",
-    "lint": "npm-run-all lint:*",
-    "lint:eslint": "eslint . --ext ts,tsx",
-    "lint:css": "stylelint './src/**/*.{css,tsx}'",
-    "lint:types": "tsc --noEmit",
     "build": "vite build",
+    "dev": "vite --host",
+    "dev:local": "LOCAL_DEV=true vite",
+    "gen:icons": "generator/gen-icons.js",
+    "lint": "npm-run-all 'lint:*'",
+    "lint:css": "stylelint './src/**/*.{css,scss}'",
+    "lint:eslint": "eslint . --ext ts,tsx,cjs,js",
+    "lint:types": "tsc --noEmit",
     "preview": "vite preview",
-    "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "jest"
   },
   "dependencies": {
     "@forge/bridge": "^2.2.1",
@@ -39,8 +40,11 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-storybook": "^0.5.12",
     "postcss-js": "^4.0.0",
-    "stylelint": "^13.13.1",
-    "stylelint-config-recommended": "^5.0.0",
+    "stylelint": "^14.9.0",
+    "stylelint-config-recommended": "^8.0.0",
+    "stylelint-junit-formatter": "^0.2.2",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-scss": "^4.2.0",
     "vite": "^2.9.9",
     "vite-plugin-eslint": "^1.6.1",
     "vite-plugin-stylelint": "^2.2.3"
