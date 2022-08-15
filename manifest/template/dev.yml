@@ -1,7 +1,7 @@
 resources:
   - key: web
     tunnel:
-      port: 3000
+      port: 3001
 permissions:
   external:
     fetch:
