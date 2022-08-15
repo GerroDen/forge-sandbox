@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import "./index.css";
+import "./global.scss";
 
 const elementById = document.getElementById("root");
 if (!elementById) throw new Error("missing root element for app");

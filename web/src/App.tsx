@@ -1,7 +1,7 @@
 import { invoke } from "@forge/bridge";
 import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import { Test } from "./components/test";
 
 export default function App() {
