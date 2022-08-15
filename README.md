@@ -1,3 +1,5 @@
+[![Node.js CI](https://github.com/GerroDen/forge-sandbox/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/GerroDen/forge-sandbox/actions/workflows/node.js.yml)
+
 # Requirements
 
 - [Node LTS](https://nodejs.org/en/), currently Node 16 (Forge is bound to Node LTS)
