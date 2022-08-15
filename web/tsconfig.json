@@ -2,10 +2,12 @@
   "extends": "@tsconfig/vite-react/tsconfig.json",
   "compilerOptions": {
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": [
-    "src"
-  ],
+  "include": ["src", ".storybook"],
   "references": [
     {
       "path": "./tsconfig.node.json"

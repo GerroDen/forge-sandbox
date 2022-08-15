@@ -1,20 +1,14 @@
 {
-	"extends": "@tsconfig/node16/tsconfig.json",
-	"compilerOptions": {
-		"target": "esnext",
-		"module": "esnext",
-		"moduleResolution": "node",
-		"lib": [
-			"esnext"
-		],
-		"baseUrl": ".",
-		"paths": {
-			"@/*": [
-				"./src/*"
-			]
-		}
-	},
-	"include": [
-		"src"
-	]
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["esnext"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
 }
