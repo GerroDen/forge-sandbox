@@ -14,6 +14,13 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "NODE_ENV=development turbo run dev",
+    "forge-deploy": "./forge-wrapper.sh deploy",
+    "forge-install": "./forge-wrapper.sh install",
+    "forge-lint": "./forge-wrapper.sh lint",
+    "forge-login": "./forge-wrapper.sh login",
+    "forge-register": "./forge-wrapper.sh register",
+    "forge-restore": "./forge-wrapper.sh restore",
+    "forge-tunnel": "./forge-wrapper.sh tunnel && cd forge/dist && forge tunnel",
     "lint": "turbo run lint",
     "postinstall": "husky install",
     "test": "turbo run test"
