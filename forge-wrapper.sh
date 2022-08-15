@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 NODE_ENV=${NODE_ENV:-}
-ENV_FILE=".env"
+ENV_FILE=".env.local"
 
 COMMAND=$1
 shift
