@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  ignorePatterns: ["**/dist/*"],
+  ignorePatterns: [/node_modules/, "**/dist/*"],
 };

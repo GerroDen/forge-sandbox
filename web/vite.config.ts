@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv, PluginOption } from "vite";
 import react from "@vitejs/plugin-react";
 import eslint from "vite-plugin-eslint";
 import StylelintPlugin from "vite-plugin-stylelint";
@@ -14,8 +14,8 @@ export default defineConfig(({ mode }) => {
         exclude: /\.stories\.tsx?$/,
         include: "**/*.tsx",
       }),
-      eslint(),
-      StylelintPlugin(),
+      eslint() as unknown as PluginOption,
+      StylelintPlugin() as unknown as PluginOption,
     ],
     resolve: {
       alias: {
