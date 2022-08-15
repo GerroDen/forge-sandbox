@@ -6,10 +6,11 @@ import { copyFile, cp, mkdir, readFile, rm, writeFile } from "fs/promises";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootPath = resolve(__dirname);
+const packagesPath = resolve(rootPath, "../packages");
 const outDir = "dist";
 const entryPoint = resolve(rootPath, "src/index.ts");
-export const manifestFile = resolve(rootPath, "../manifest/dist/manifest.yml");
-const webBundleDir = resolve(rootPath, "../web/dist");
+export const manifestFile = resolve(packagesPath, "manifest/dist/manifest.yml");
+const webBundleDir = resolve(packagesPath, "web/dist");
 const webOutDir = resolve(rootPath, outDir, "web");
 
 const externalLibs = ["^@forge/"];

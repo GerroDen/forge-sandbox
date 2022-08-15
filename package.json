@@ -7,9 +7,8 @@
     "node": ">=16"
   },
   "workspaces": [
-    "forge",
-    "manifest",
-    "web"
+    "app",
+    "packages/*"
   ],
   "scripts": {
     "build": "turbo run build",
