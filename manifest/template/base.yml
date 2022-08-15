@@ -1,10 +1,11 @@
 modules:
-  jira:projectPage:
-    - key: dashboard
+  jira:globalPage:
+    - key: forge-sandbox
       resource: web
       resolver:
         function: resolver
-      title: dashboard
+      layout: basic
+      title: Forge Sandbox
   function:
     - key: resolver
       handler: index.handler
