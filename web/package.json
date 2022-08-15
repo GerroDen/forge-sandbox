@@ -7,7 +7,6 @@
     "build": "vite build",
     "dev": "vite --host",
     "dev:local": "LOCAL_DEV=true vite",
-    "gen:icons": "generator/gen-icons.js",
     "lint": "npm-run-all 'lint:*'",
     "lint:css": "stylelint './src/**/*.{css,scss}'",
     "lint:eslint": "eslint . --ext ts,tsx,cjs,js",
