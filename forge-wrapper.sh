@@ -14,7 +14,7 @@ case $COMMAND in
         echo "Registering app"
         export NODE_ENV=$NODE_ENV
         npm run build
-        cd forge/dist
+        cd app/dist
         forge register
         APP_ID="$(sed -n "s/  id: ari:cloud:ecosystem::app\///p" manifest.yml)"
         cd -
@@ -28,7 +28,7 @@ case $COMMAND in
           export NODE_ENV="development"
         fi
         npm run build
-        cd forge/dist
+        cd app/dist
         if [ "$COMMAND" == tunnel ]; then
           npm i
         else
