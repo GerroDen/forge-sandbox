@@ -17,8 +17,8 @@
     "web": "*"
   },
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.2",
+    "@tsconfig/node16": "^1.0.3",
     "chokidar": "^3.5.3",
-    "esbuild": "^0.14.39"
+    "esbuild": "^0.15.3"
   }
 }
