@@ -1,5 +1,9 @@
+import { getText } from "@/lib/get-text";
+
 describe("test", () => {
   it("tests", () => {
-    expect(true).toBe(true);
+    const result = getText();
+
+    expect(typeof result).toBe("string");
   });
 });
