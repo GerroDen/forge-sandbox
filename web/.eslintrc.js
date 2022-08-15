@@ -18,7 +18,14 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "jest"],
+  plugins: [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "jest",
+    "unused-imports",
+    "storybook",
+  ],
   settings: {
     react: {
       version: "detect",
