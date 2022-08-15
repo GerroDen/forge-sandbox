@@ -3,4 +3,8 @@ export default {
   transform: {
     "\\.ts$": "@swc/jest",
   },
+  moduleNameMapper: {
+    // alias from vite.config
+    "^@/(.*)$": "<rootDir>/$1",
+  },
 };
