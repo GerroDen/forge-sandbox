@@ -1,24 +1,24 @@
 import React from "react";
-import { Test } from "./test";
+import { Dummy } from "@/components/dummy";
 
 export default {
-  component: Test,
+  component: Dummy,
 };
 
 export function Base() {
-  return <Test foo={"hi"} />;
+  return <Dummy foo={"hi"} />;
 }
 
 export function Is() {
-  return <Test foo={"hi"} is />;
+  return <Dummy foo={"hi"} is />;
 }
 
 export function Children() {
   return (
-    <Test foo={"hi"}>
+    <Dummy foo={"hi"}>
       foooooo
       <strong>öööö</strong>
       bar
-    </Test>
+    </Dummy>
   );
 }

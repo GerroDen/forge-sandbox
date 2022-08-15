@@ -1,8 +1,8 @@
-import { Test } from "@/components/test";
+import { Dummy } from "@/components/dummy";
 
 describe("test", () => {
   it("tests", () => {
-    console.log(Test);
+    console.log(Dummy);
 
     expect(true).toBe(true);
   });

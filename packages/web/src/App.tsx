@@ -2,7 +2,7 @@ import { invoke } from "@forge/bridge";
 import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.scss";
-import { Test } from "./components/test";
+import { Dummy } from "./components/dummy";
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -36,7 +36,7 @@ export default function App() {
         </p>
         <p>{data ? data : "Loading..."}</p>
         <p>
-          <Test foo={"reee"} />
+          <Dummy foo={"reee"} />
         </p>
         <p>
           <a

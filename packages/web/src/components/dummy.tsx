@@ -7,7 +7,7 @@ export interface Props {
   children?: Array<JSX.Element | string>;
 }
 
-export function Test({ foo, bar = "hiii", is = false, children }: Props) {
+export function Dummy({ foo, bar = "hiii", is = false, children }: Props) {
   const [state, setState] = useState({
     foo,
     bar,
