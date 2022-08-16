@@ -19,7 +19,7 @@
     "forge-login": "./forge-wrapper.sh login",
     "forge-register": "./forge-wrapper.sh register",
     "forge-restore": "./forge-wrapper.sh restore",
-    "forge-tunnel": "./forge-wrapper.sh tunnel && cd forge/dist && forge tunnel",
+    "forge-tunnel": "./forge-wrapper.sh tunnel && cd app/dist && forge tunnel",
     "lint": "turbo run lint",
     "test": "turbo run test"
   },
