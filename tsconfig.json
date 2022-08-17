@@ -2,13 +2,10 @@
   "files": [],
   "references": [
     {
-      "path": "./forge/tsconfig.ref.json"
+      "path": "./app/tsconfig.ref.json"
     },
     {
-      "path": "./web/tsconfig.ref.json"
-    },
-    {
-      "path": "./functions/tsconfig.ref.json"
+      "path": "./pckages/web/tsconfig.ref.json"
     }
   ]
 }
