@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "chokidar 'template/*.yml' -c 'yarn build'",
+    "dev": "chokidar 'template/*.yml' -c 'npm run build'",
     "build": "./build.js",
     "lint": "./build.js && ./lint.js"
   },
