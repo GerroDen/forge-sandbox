@@ -49,6 +49,7 @@ export async function bundle() {
       bundle: true,
       outdir: resolve(rootPath, outDir, "src"),
       format: "esm",
+      target: "node14",
       plugins: [trackExternalDependencies.plugin],
     }),
     (async () => {
