@@ -6,5 +6,9 @@ const paths = ["src/**/*.ts", manifestFile, "tsconfig.json", "package.json"];
 await bundle();
 console.log(`watching changes on ${paths.join(", ")}`);
 chokidar.watch(paths, { ignoreInitial: true }).on("all", async () => {
-  await bundle();
+  try {
+    await bundle();
+  } catch (e) {
+    console.error("bundling failed", e);
+  }
 });
