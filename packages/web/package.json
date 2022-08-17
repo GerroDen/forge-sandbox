@@ -51,10 +51,6 @@
     "vite-plugin-eslint": "^1.8.0",
     "vite-plugin-stylelint": "^3.0.7"
   },
-  "overrides": {
-    "@types/react": "^16.14.30",
-    "@types/react-dom": "^16.9.16"
-  },
   "browserslist": [
     ">1%",
     "last 1 version",
