@@ -43,7 +43,7 @@ After the initial setup is done, only a subset of steps is necessary during deve
 The app is only accessible to the developer. To show the app to someone else, it is necessary to deploy to staging or production.
 
 1. `npm run forge-deploy` is necessary if you changed the `manifest.yml`
-2. `npm run forge-install --upgrade` is necessary if you changed the `manifest.yml`
+2. `npm run forge-install -- --upgrade` is necessary if you changed the `manifest.yml`
 3. `npm run forge-tunnel` start the tunnel with hot-deployment of local code changes and hot-reload for UI
 4. in a new terminal run `npm run dev` to watch forge workspace and start vite dev server
 
@@ -52,8 +52,8 @@ The app is only accessible to the developer. To show the app to someone else, it
 To show the results to someone else but yourself you have to deploy on staging and enable ap distribution once.
 The app is completely separated from the dev version: it has separate entries in the app manager in the Atlassian product and menus.
 
-1. `npm run forge-deploy -e staging` is necessary if you changed the `manifest.yml`
-2. `npm run forge-install -e staging` is necessary if you changed the `manifest.yml`
+1. `npm run forge-deploy -- -e staging` is necessary if you changed the `manifest.yml`
+2. `npm run forge-install -- -e staging` is necessary if you changed the `manifest.yml`
 
 In order to allow access for someone but the developer itself, app distribution must be enabled.
 To enable app distribution, go to your app in [the console](https://developer.atlassian.com/console/myapps), choose "Distribution" and fill all fields.
