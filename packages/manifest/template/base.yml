@@ -12,3 +12,9 @@ modules:
 resources:
   - key: web
     path: web
+permissions:
+  content:
+    styles:
+      # this seems to be necessary for react apps
+      - unsafe-inline
+
