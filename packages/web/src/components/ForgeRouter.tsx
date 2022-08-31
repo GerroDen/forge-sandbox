@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { view } from "@forge/bridge";
 import { useAsync } from "react-use";
-import { Action, History, Location, Update } from "history";
+import { Action, History, Location, To, Update } from "history";
 
 interface Props {
   loadingView?: () => ReactChild;
@@ -35,6 +35,7 @@ export function ForgeRouter({ loadingView, children }: Props) {
   );
   useAsync(async () => {
     const newHistory = await view.createHistory();
+    patchHistoryV4(newHistory);
     setHistory(newHistory);
   }, []);
   useEffect(() => {
@@ -73,4 +74,23 @@ export function ForgeRouter({ loadingView, children }: Props) {
       )}
     </>
   );
+}
+
+/**
+ * Patches `history@4` from `@forge/bridge` to work with necessary `history@5` API used in `Link` from `react-router`.
+ */
+function patchHistoryV4(newHistory: History): void {
+  const originCreateHref = newHistory.createHref;
+  newHistory.createHref = (to: To): string => {
+    const result = originCreateHref(to) as unknown as Record<string, string>;
+    if (result.resolved) {
+      return result.value;
+    }
+    if (typeof to === "string") {
+      return to;
+    }
+    return [to.pathname, to.search, to.hash]
+      .filter((str) => str !== undefined)
+      .join("");
+  };
 }
