@@ -7,7 +7,8 @@
     "lib": ["esnext"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "bridge/*": ["../packages/bridge/src/*"]
     }
   },
   "include": ["src"]

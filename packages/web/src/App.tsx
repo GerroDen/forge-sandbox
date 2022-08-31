@@ -1,17 +1,15 @@
-import { invoke } from "@forge/bridge";
 import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.scss";
 import { Dummy } from "./components/dummy";
+import { getText } from "@/lib/get-text-client";
 
 export default function App() {
   const [count, setCount] = useState(0);
   const [data, setData] = useState<string | null>(null);
 
   async function loadData() {
-    const data = await invoke<string>("getText", {
-      example: "my-invoke-variable",
-    });
+    const data = await getText({ text: "payload" });
     setData(data);
   }
 

@@ -4,7 +4,8 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "bridge/*": ["../bridge/src/*"]
     }
   },
   "include": ["src", ".storybook"],
