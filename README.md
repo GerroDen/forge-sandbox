@@ -5,14 +5,6 @@
 - [Node LTS](https://nodejs.org/en/), currently Node 16 (Forge is bound to Node LTS)
 - [Forge CLI](https://developer.atlassian.com/platform/forge/cli-reference/)
 
-# Build chain
-
-```
-web ----+
-        +---> forge/dist
-forge --+
-```
-
 # Initial Setup
 
 The initial setup requires a certain sequence of operations to work with the app within a running Jira Cloud instance.
