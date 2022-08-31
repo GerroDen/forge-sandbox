@@ -3,11 +3,11 @@ import { getText } from "@/lib/get-text";
 import { isJiraGlobalAdmin } from "@/lib/permissions";
 import { z } from "zod";
 import { getTextSchema } from "@/lib/get-text-schema";
-import { GetTextPayload } from "bridge/get-text";
+import { Functions, GetTextPayload } from "bridge/get-text";
 
 const resolver = new Resolver();
 
-resolver.define("getText", async (req) => {
+resolver.define(Functions.getText, async (req) => {
   console.log("called getText()");
   await requireAccess({ req });
   const accountId = requireAccountId(req);
