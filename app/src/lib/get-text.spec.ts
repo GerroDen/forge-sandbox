@@ -2,8 +2,8 @@ import { getText } from "@/lib/get-text";
 
 describe("test", () => {
   it("tests", () => {
-    const result = getText();
+    const result = getText({ text: "text", accountId: "accountId" });
 
-    expect(typeof result).toBe("string");
+    expect(result).toBe("Hello, world!\ntext");
   });
 });
