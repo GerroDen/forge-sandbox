@@ -16,11 +16,11 @@
     "test": "jest"
   },
   "dependencies": {
-    "@forge/bridge": "^2.2.1",
-    "@forge/ui": "^1.1.0",
+    "@forge/bridge": "^2.4.0",
+    "@forge/ui": "^1.4.0",
     "bridge": "*",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react": "~16.14.0",
+    "react-dom": "~16.14.0",
     "react-router-dom": "^6.3.0",
     "react-use": "^17.4.0"
   },

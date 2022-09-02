@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@forge/resolver": "^1.4.3",
+    "@forge/resolver": "^1.4.4",
     "bridge": "*",
     "manifest": "*",
     "web": "*"
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
     "chokidar": "^3.5.3",
-    "esbuild": "^0.15.3",
+    "esbuild": "^0.15.6",
     "zod": "^3.18.0"
   }
 }
