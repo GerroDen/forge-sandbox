@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => {
       alias: {
         "@": resolve(__dirname, "src"),
         "@assets": resolve(__dirname, "assets"),
+        bridge: "bridge/src",
         ...(env.LOCAL_DEV === "true" && {
           "@forge/bridge": resolve(
             __dirname,
