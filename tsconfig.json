@@ -5,7 +5,7 @@
       "path": "./app/tsconfig.ref.json"
     },
     {
-      "path": "./pckages/web/tsconfig.ref.json"
+      "path": "./packages/web/tsconfig.ref.json"
     }
   ]
 }
