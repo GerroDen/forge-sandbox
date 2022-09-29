@@ -11,7 +11,7 @@ const ignoredMessages = [
   /cannot find associated file with name 'index\.\[jt]\(s|sx\)'$/,
 ];
 
-const results = ProcessorBuilder.instance()
+const results = await ProcessorBuilder.instance()
   .withValidation(ValidationTypes.FULL)
   .build()
   .process(manifestFile);
