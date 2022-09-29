@@ -175,3 +175,31 @@ For custom styles simply add a `.module.scss` file next to you component and app
 ## Global Styles
 
 If you find yourself needing global styles for some odd reason, add the styles to `global.module.css` or in a separate file that is imported into it.
+
+## Forge Modules
+
+Different Forge modules must be registered in the manifest.
+In order to save the hassle of creating various vite projects, on top level this project renders different applications depending on the current context provided by Forge during runtime.
+
+To start the different application parts it is necessary to mock the parameters inside that context.
+Every parameter can be overridden by query params or environment variables preceded with `FORGE_CONTEXT_` or `FC_`.
+
+To override the parameter `moduleKey` in the context:
+
+```
+http://localhost:3000/?moduleKey=main
+# or
+FORGE_CONTEXT_MODULEKEY=main yarn dev:local
+# or
+FC_MODULEKEY=main yarn dev:local
+```
+
+To override a nested parameter like `extension.issue.key` in the context:
+
+```
+http://localhost:3000/?moduleKey=main
+# or
+FORGE_CONTEXT_EXTENSION_ISSUE_KEY=main yarn dev:local
+# or
+FC_EXTENSION_ISSUE_KEY=main yarn dev:local
+```

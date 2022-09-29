@@ -7,6 +7,11 @@ import type bridgeType from "@forge/bridge";
 import { Flag } from "@forge/bridge/out/flag/flag";
 import { InvokePayload } from "@forge/bridge/out/types";
 import { createBrowserHistory, History } from "history";
+import {
+  AllExtensios,
+  ForgeContext,
+  IssuePanelExtension,
+} from "@/lib/forge-context";
 
 console.warn("mocking '@forge/bridge' in dev mode");
 
@@ -42,8 +47,62 @@ const bridge: DeepPartial<typeof bridgeType> = {
     async createHistory(): Promise<History> {
       return createBrowserHistory();
     },
+    /**
+     * Mocks the forge context.
+     * The forge context can be overridden by query parameters or environment variables.
+     * i.e.
+     * http://localhost:3000/?moduleKey=main
+     * or
+     * FORGE_CONTEXT_MODULEKEY=main yarn dev:local
+     * or
+     * FC_MODULEKEY=main yarn dev:local
+     * is the same.
+     * Query parameters have precedence over env vars and over defaults.
+     * If no default is defined, the param itself is used as default value, which is only sufficient for string typed context parameters.
+     */
+    async getContext(): Promise<ForgeContext<AllExtensios>> {
+      return {
+        accountId: getContextProp("accountId"),
+        cloudId: getContextProp("cloudId"),
+        extension: {
+          type: getContextProp("extension.type"),
+          issue: {
+            id: getContextProp("extension.issue.id"),
+            key: getContextProp("extension.issue.key"),
+            type: getContextProp("extension.issue.type"),
+            typeId: getContextProp("extension.issue.typeId"),
+          },
+          project: {
+            id: getContextProp("extension.project.id"),
+            key: getContextProp("extension.project.key"),
+            type: getContextProp("extension.project.type"),
+          },
+          isNewToIssue: getContextProp("extension.isNewToIssue", false),
+        },
+        localId: getContextProp("localId"),
+        locale: getContextProp("locale"),
+        moduleKey: getContextProp("moduleKey", "agile-hive-main"),
+        siteUrl: getContextProp("siteUrl"),
+        timezone: getContextProp("timezone"),
+      };
+    },
   },
 };
+
+function getContextProp(param: string): string;
+function getContextProp<T>(param: string, defaultResult?: T): T;
+function getContextProp<T>(param: string, defaultResult?: T): T {
+  const envVar = paramToEnvVar(param);
+  return (new URLSearchParams(window.location.search).get(param) ??
+    process.env[`FORGE_CONTEXT_${envVar}`] ??
+    process.env[`FC_${envVar}`] ??
+    defaultResult ??
+    param) as T;
+}
+
+function paramToEnvVar(string: string) {
+  return string.replace(/\./g, "_").toUpperCase();
+}
 
 export const requestJira = bridge.requestJira;
 export const invoke = bridge.invoke;
