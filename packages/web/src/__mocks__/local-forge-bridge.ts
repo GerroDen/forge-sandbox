@@ -89,13 +89,13 @@ const bridge: DeepPartial<typeof bridgeType> = {
   },
 };
 
+const forgeContextEnvVars = process.env.FORGE_CONTEXT;
 function getContextProp(param: string): string;
 function getContextProp<T>(param: string, defaultResult?: T): T;
 function getContextProp<T>(param: string, defaultResult?: T): T {
   const envVar = paramToEnvVar(param);
   return (new URLSearchParams(window.location.search).get(param) ??
-    process.env[`FORGE_CONTEXT_${envVar}`] ??
-    process.env[`FC_${envVar}`] ??
+    forgeContextEnvVars?.[envVar] ??
     defaultResult ??
     param) as T;
 }

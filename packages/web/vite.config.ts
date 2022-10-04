@@ -7,6 +7,16 @@ import { resolve } from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
+  const forgeContextVars = Object.fromEntries(
+    Object.entries(env)
+      .filter(
+        ([key]) => key.startsWith("FORGE_CONTEXT_") || key.startsWith("FC_")
+      )
+      .map(([key, value]) => [
+        key,
+        value.replace("FORGE_CONTEXT_", "").replace("FC_", ""),
+      ])
+  );
   return {
     plugins: [
       react({
@@ -32,6 +42,7 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+      "process.env.FORGE_CONTEXT": JSON.stringify(forgeContextVars),
     },
     base: "./",
     server: {
