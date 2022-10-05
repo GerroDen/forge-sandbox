@@ -24,7 +24,7 @@ interface Extension {
 /**
  * Union of all possible extension types
  */
-export type AllExtensios = IssuePanelExtension;
+export type AllExtensions = IssuePanelExtension;
 
 /**
  * @see https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-issue-panel/#extension-context

@@ -8,7 +8,7 @@ import { Flag } from "@forge/bridge/out/flag/flag";
 import { InvokePayload } from "@forge/bridge/out/types";
 import { createBrowserHistory, History } from "history";
 import {
-  AllExtensios,
+  AllExtensions,
   ForgeContext,
   IssuePanelExtension,
 } from "@/lib/forge-context";
@@ -60,7 +60,7 @@ const bridge: DeepPartial<typeof bridgeType> = {
      * Query parameters have precedence over env vars and over defaults.
      * If no default is defined, the param itself is used as default value, which is only sufficient for string typed context parameters.
      */
-    async getContext(): Promise<ForgeContext<AllExtensios>> {
+    async getContext(): Promise<ForgeContext<AllExtensions>> {
       return {
         accountId: getContextProp("accountId"),
         cloudId: getContextProp("cloudId"),
