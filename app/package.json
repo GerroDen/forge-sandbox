@@ -20,7 +20,7 @@
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
     "chokidar": "^3.5.3",
-    "esbuild": "^0.15.6",
+    "esbuild": "^0.15.12",
     "zod": "^3.18.0"
   }
 }
