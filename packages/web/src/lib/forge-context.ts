@@ -52,3 +52,40 @@ function getTypedContext<EXTENSION extends Extension = Extension>(): Promise<
 }
 
 export const getForgeContext = memoize(getTypedContext);
+
+export async function getAppRootUrl(product: Product): Promise<string> {
+  const { siteUrl, localId } = await getForgeContext();
+  const { appId, envId } = parseLocalId(localId);
+  return `${siteUrl}/${product}/apps/${appId}/${envId}`;
+}
+
+/**
+ * Parses a `localId` of a `ForgeContext` and resolves the `appId` and `envId` part.
+ *
+ * A `localId` has the form `ari:cloud:ecosystem::extension/d514accc-9103-4507-ac09-016210a35de8/ea2ca26d-2070-4ae5-97e5-42066813da57/static/agile-hive-issue-hierarchy-panel-ef3b5116-1665998886908`,
+ * then `d514accc-9103-4507-ac09-016210a35de8` is the `appId` and `ea2ca26d-2070-4ae5-97e5-42066813da57` is the `envId`.
+ * The `envId` is different between each installation and development, staging and production environment of the Forge app.
+ */
+export function parseLocalId(localId: string): {
+  appId: string;
+  envId: string;
+} {
+  if (!localId.startsWith(localIdPrefix)) {
+    throw new InvalidLocalIdError();
+  }
+  const [, appId, envId] = localId.split("/");
+  return { appId, envId };
+}
+
+export enum Product {
+  jira = "jira",
+  confluence = "confluence",
+}
+
+const localIdPrefix = "ari:cloud:ecosystem::extension/";
+
+export class InvalidLocalIdError extends Error {
+  constructor() {
+    super(`the localId is invalid, it must start with "${localIdPrefix}"`);
+  }
+}
