@@ -1,15 +1,17 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "baseBranch": "origin/main",
+  "globalDependencies": [".env", ".env.local"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"]
     },
     "manifest#build": {
-      "dependsOn": ["$APP_ID", "$NODE_ENV"]
+      "dependsOn": [],
+      "env": ["APP_ID", "NODE_ENV"]
     },
     "web#build": {
-      "dependsOn": ["$NODE_ENV"]
+      "dependsOn": [],
+      "env": ["NODE_ENV"]
     },
     "dev": {
       "outputs": [],
