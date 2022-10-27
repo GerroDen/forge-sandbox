@@ -1,4 +1,6 @@
 module.exports = {
+  resetMocks: true,
+  resetModules: true,
   rootDir: "./src",
   transform: {
     // "\\.tsx?$": ["esbuild-jest", { sourcemap: true }],

@@ -1,4 +1,6 @@
 export default {
+  resetMocks: true,
+  resetModules: true,
   rootDir: "./src",
   transform: {
     "\\.ts$": "@swc/jest",
