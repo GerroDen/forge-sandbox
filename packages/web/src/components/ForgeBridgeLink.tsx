@@ -19,6 +19,7 @@ export type Props = Except<
   newWindow?: boolean;
   /** Overrides the default `onClick` behaviour. */
   onClick?: () => void;
+  product: Product;
 };
 
 /**
@@ -32,6 +33,7 @@ export function ForgeBridgeLink({
   href,
   newWindow,
   onClick,
+  product,
   children,
   ...props
 }: Props) {
@@ -42,7 +44,7 @@ export function ForgeBridgeLink({
       href = `${siteUrl}${href}`;
     }
     if (href.startsWith("@app/")) {
-      const appRootUrl = await getAppRootUrl(Product.jira);
+      const appRootUrl = await getAppRootUrl(product);
       href = href.replace("@app", appRootUrl);
     }
     _setHref(href);
