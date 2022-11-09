@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@forge/resolver": "^1.4.4",
+    "@forge/resolver": "^1.4.6",
     "bridge": "*",
     "manifest": "*",
     "web": "*"
