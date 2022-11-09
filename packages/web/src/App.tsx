@@ -33,9 +33,7 @@ export default function App() {
           Edit <code>App.tsx</code> and save to test HMR updates.
         </p>
         <p>{data ? data : "Loading..."}</p>
-        <p>
-          <Dummy foo={"reee"} />
-        </p>
+        <Dummy foo={"reee"} />
         <p>
           <a
             className="App-link"
