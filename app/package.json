@@ -7,12 +7,12 @@
     "build": "./build.js",
     "dev": "./watch.js",
     "lint": "npm-run-all 'lint:*'",
-    "lint:eslint": "eslint . --ext ts,cjs,js",
+    "lint:eslint": "eslint . --quiet --ext ts,cjs,js",
     "lint:types": "tsc --noEmit",
     "test": "jest"
   },
   "dependencies": {
-    "@forge/resolver": "^1.4.4",
+    "@forge/resolver": "^1.4.6",
     "bridge": "*",
     "manifest": "*",
     "web": "*"
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
     "chokidar": "^3.5.3",
-    "esbuild": "^0.15.12",
-    "zod": "^3.18.0"
+    "esbuild": "^0.15.14",
+    "zod": "^3.19.1"
   }
 }
