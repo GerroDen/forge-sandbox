@@ -57,10 +57,14 @@ export function ForgeBridgeLink({
         onClick();
         return;
       }
-      if (newWindow) {
-        await router.open(_href);
-      } else {
-        await router.navigate(_href);
+      try {
+        if (newWindow) {
+          await router.open(_href);
+        } else {
+          await router.navigate(_href);
+        }
+      } catch (e) {
+        console.warn(`did not confirm to open link ${_href}`, e);
       }
     },
     [_href, onClick, newWindow]
