@@ -68,6 +68,17 @@ Builds all workspaces and bundles them into `forge/dist`.
 
 Runs lint in all workspaces.
 
+## `forge-tunnel`
+
+Runs `forge-wrapper` with tunnel preparations.
+This is only necessary to prepare `forge tunnel` with docker.
+Run `dev` in a separate terminal to use the docker tunnel.
+
+## `forge-tunnel:local`
+
+In contrast to `forge-tunnel` this command actually starts the tunnel without using docker.
+Run `dev` in a separate terminal to use the local tunnel.
+
 # Forge Wrapper CLI `forge-wrapper.sh`
 
 This is a wrapper script to manage local building steps before using the Forge CLI and app registration.
