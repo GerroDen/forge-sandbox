@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "NODE_ENV=development turbo run dev",
+    "dev": "env $(cat .env.local | xargs) NODE_ENV=development turbo run dev",
     "forge-deploy": "./forge-wrapper.sh deploy",
     "forge-install": "./forge-wrapper.sh install",
     "forge-lint": "./forge-wrapper.sh lint",
