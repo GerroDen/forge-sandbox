@@ -76,7 +76,7 @@ Run `dev` in a separate terminal to use the docker tunnel.
 
 ## `forge-tunnel:local`
 
-In contrast to `forge-tunnel` this command actually starts the tunnel without using docker.
+In contrast to `forge-tunnel` this command actually starts the tunnel without docker.
 Run `dev` in a separate terminal to use the local tunnel.
 
 # Forge Wrapper CLI `forge-wrapper.sh`
