@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "chokidar 'template/*.yml' -c 'npm run build'",
+    "dev": "chokidar 'template/*.yml' --initial -c 'npm run build'",
     "build": "./build.js",
     "lint": "./build.js && ./lint.js"
   },
