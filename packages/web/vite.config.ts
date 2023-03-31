@@ -58,6 +58,25 @@ export default defineConfig(({ mode }) => {
             // fixes XSRF errors in dev:local
             "X-Atlassian-Token": "no-check",
           },
+          configure: (proxy, _options) => {
+            proxy.on("error", (err, _req, _res) => {
+              console.error("proxy error", err);
+            });
+            proxy.on("proxyReq", (proxyReq, req, _res) => {
+              console.info(
+                "Sending Request to the Target:",
+                proxyReq.method,
+                proxyReq.host + proxyReq.path
+              );
+            });
+            proxy.on("proxyRes", (proxyRes, req, _res) => {
+              console.info(
+                "Received Response from the Target:",
+                proxyRes.statusCode,
+                req.url
+              );
+            });
+          },
         },
       },
     },
