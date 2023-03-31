@@ -52,6 +52,12 @@ export default defineConfig(({ mode }) => {
           target: env.ATLASSIAN_BASE_URL,
           auth: `${env.ATLASSIAN_AUTH_EMAIL}:${env.ATLASSIAN_AUTH_TOKEN}`,
           changeOrigin: true,
+          headers: {
+            // fixes XSRF errors, cause X-Atlassian-Token header is only interpreted for non browser user-agents
+            "User-Agent": "Node.js",
+            // fixes XSRF errors in dev:local
+            "X-Atlassian-Token": "no-check",
+          },
         },
       },
     },
