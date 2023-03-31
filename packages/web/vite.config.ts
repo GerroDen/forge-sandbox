@@ -80,6 +80,11 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
+    esbuild: {
+      // this simply happens and is unavoidable with React16 in esbuild
+      // see: https://github.com/vitejs/vite/discussions/8640
+      logOverride: { "this-is-undefined-in-esm": "silent" },
+    },
     css: {
       modules: {
         localsConvention: "camelCaseOnly",
