@@ -29,11 +29,9 @@ case $COMMAND in
         fi
         npm run build
         cd app/dist
-        if [ "$COMMAND" == tunnel ]; then
-          npm i
-        else
-          ## Forge tunnel cannot be called within a bash script.
-          ## This leads to an error log "Error: spawn ts-node ENOENT", which could be an implementation flaw in forge cli.
+        ## Forge tunnel cannot be called within a bash script.
+        ## This leads to an error log "Error: spawn ts-node ENOENT", which could be an implementation flaw in forge cli.
+        if [ "$COMMAND" != tunnel ]; then
           forge "$COMMAND" "$@"
         fi
     ;;
