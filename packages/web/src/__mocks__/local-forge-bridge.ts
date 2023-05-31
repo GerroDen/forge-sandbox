@@ -64,6 +64,8 @@ const bridge: DeepPartial<typeof bridgeType> = {
       return {
         accountId: getContextProp("accountId"),
         cloudId: getContextProp("cloudId"),
+        environmentId: getContextProp("environmentId"),
+        environmentType: getContextProp("environmentType", "DEVELOPMENT"),
         extension: {
           type: getContextProp("extension.type"),
           issue: {
@@ -84,6 +86,11 @@ const bridge: DeepPartial<typeof bridgeType> = {
         moduleKey: getContextProp("moduleKey", "agile-hive-main"),
         siteUrl: getContextProp("siteUrl"),
         timezone: getContextProp("timezone"),
+        theme: {
+          dark: "dark",
+          light: "light",
+          colorMode: getContextProp("theme.colorMode", "light"),
+        },
       };
     },
   },
