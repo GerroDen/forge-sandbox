@@ -15,6 +15,13 @@ export interface ForgeContext<EXTENSION extends Extension = Extension>
   moduleKey: string;
   siteUrl: string;
   timezone: string;
+  theme: ThemeContext;
+}
+
+interface ThemeContext {
+  dark: string;
+  light: string;
+  colorMode: "dark" | "light";
 }
 
 interface Extension {
@@ -24,25 +31,37 @@ interface Extension {
 /**
  * Union of all possible extension types
  */
-export type AllExtensions = IssuePanelExtension;
+export type AllExtensions = IssuePanelExtension | ProjectPageExtension;
+
+interface ContextProject {
+  id: string;
+  key: string;
+  type: string;
+}
+
+interface ContextIssue {
+  id: string;
+  key: string;
+  type: string;
+  typeId: string;
+}
 
 /**
- * @see https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-issue-panel/#extension-context
+ * @see https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-issue-panel/#custom-ui
  */
 export interface IssuePanelExtension extends Extension {
-  type: string;
-  issue: {
-    id: string;
-    key: string;
-    type: string;
-    typeId: string;
-  };
-  project: {
-    id: string;
-    key: string;
-    type: string;
-  };
+  type: "jira:issuePanel";
+  issue: ContextIssue;
+  project: ContextProject;
   isNewToIssue: boolean;
+}
+
+/**
+ * @see https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-project-page/#custom-ui
+ */
+export interface ProjectPageExtension extends Extension {
+  type: "jira:projectPage";
+  project: ContextProject;
 }
 
 function getTypedContext<EXTENSION extends Extension = Extension>(): Promise<
