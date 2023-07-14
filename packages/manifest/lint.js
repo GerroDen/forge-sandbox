@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import { ProcessorBuilder, ValidationTypes } from "@forge/manifest";
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
+import { CustomValidationProcessor } from "./custom-validation-processor.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const manifestFile = resolve(__dirname, "dist/manifest.yml");
@@ -11,10 +11,8 @@ const ignoredMessages = [
   /cannot find associated file with name 'index\.\[jt]\(s|sx\)'$/,
 ];
 
-const results = await ProcessorBuilder.instance()
-  .withValidation(ValidationTypes.FULL)
-  .build()
-  .process(manifestFile);
+const validationProcessor = new CustomValidationProcessor();
+const results = await validationProcessor.process(manifestFile);
 
 const errors = results.errors.filter(
   ({ message }) =>
