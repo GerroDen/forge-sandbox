@@ -11,6 +11,10 @@
   "devDependencies": {
     "@forge/manifest": "^4.16.0",
     "chokidar-cli": "^3.0.0",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "yaml": "^2.3.1"
+  },
+  "dependencies": {
+    "web": "^0.0.0"
   }
 }
