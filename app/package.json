@@ -15,7 +15,7 @@
     "@forge/resolver": "^1.5.11",
     "bridge": "*",
     "manifest": "*",
-    "web": "^0.0.0"
+    "web": "*"
   },
   "devDependencies": {
     "@tsconfig/node16": "^16.1.0",
