@@ -25,7 +25,7 @@ export function ForgeModules({ children }: Props) {
     <>
       {contextState.value &&
         (modules.find(
-          ({ moduleKey }) => moduleKey === contextState.value?.moduleKey
+          ({ moduleKey }) => moduleKey === contextState.value?.moduleKey,
         )?.element ?? (
           <div>unknown module key {contextState.value?.moduleKey}</div>
         ))}
@@ -39,7 +39,7 @@ interface ForgeModuleObject {
 }
 
 function createForgeModuleObjectsFromChildren(
-  children: ReactNode
+  children: ReactNode,
 ): ForgeModuleObject[] {
   const modules: ForgeModuleObject[] = [];
   Children.forEach(children, (child) => {
@@ -50,7 +50,7 @@ function createForgeModuleObjectsFromChildren(
       const childName =
         typeof child.type === "string" ? child.type : child.type.name;
       throw new Error(
-        `[${childName}] is not a <ForgeModule> component. All component children of <ForgeModules> must be a <ForgeModule>`
+        `[${childName}] is not a <ForgeModule> component. All component children of <ForgeModules> must be a <ForgeModule>`,
       );
     }
     modules.push(child.props);

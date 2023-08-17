@@ -67,7 +67,7 @@ export function ForgeBridgeLink({
         console.warn(`did not confirm to open link ${_href}`, e);
       }
     },
-    [_href, onClick, newWindow]
+    [_href, onClick, newWindow],
   );
   return (
     <a {...props} href={_href} onClick={_onClick}>

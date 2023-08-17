@@ -87,7 +87,7 @@ async function getInstanceBaseInfo(): Promise<InstanceBaseInfo> {
 }
 
 export async function getAppRootUrl(
-  product: Product = Product.jira
+  product: Product = Product.jira,
 ): Promise<string> {
   if (process.env.LOCAL_DEV === "true") return "localhost:3000";
   const { siteUrl, appId, envId } = await getInstanceBaseInfo();
@@ -95,7 +95,7 @@ export async function getAppRootUrl(
 }
 
 export async function getSettingsRootUrl(
-  product: Product = Product.jira
+  product: Product = Product.jira,
 ): Promise<string> {
   if (process.env.LOCAL_DEV === "true") return "localhost:3000";
   const { siteUrl, appId, envId } = await getInstanceBaseInfo();
@@ -132,7 +132,7 @@ export enum Product {
 export class InvalidLocalIdError extends Error {
   constructor() {
     super(
-      `the localId is invalid, it must have the pattern "${localIdPattern.source}"`
+      `the localId is invalid, it must have the pattern "${localIdPattern.source}"`,
     );
   }
 }

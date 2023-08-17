@@ -31,7 +31,7 @@ interface Props {
 export function ForgeRouter({ loadingView, children }: Props) {
   const [history, setHistory] = useState<History | undefined>(undefined);
   const [historyState, setHistoryState] = useState<Update | undefined>(
-    undefined
+    undefined,
   );
   useAsync(async () => {
     const newHistory = await view.createHistory();
