@@ -1,12 +1,18 @@
+# Add all ignored files in this file alone to let prettier do it's work
+node_modules/
+dist/
+reports/
 logs/
+storybook-static/
+.turbo/
+.stylelintcache
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
-node_modules/
-dist/
-.turbo/
-*.local
+.env
+.env.local
+junit.xml
+.eslintcache
