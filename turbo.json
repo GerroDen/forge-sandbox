@@ -1,27 +1,39 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalDependencies": [".env", ".env.local"],
+  "globalDotEnv": [".env.local", ".env"],
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "dotEnv": [
+        ".env.production.local",
+        ".env.production",
+        ".env.local",
+        ".env"
+      ],
+      "outputs": ["dist/**"]
     },
-    "manifest#build": {
-      "dependsOn": [],
-      "env": ["APP_ID", "NODE_ENV"]
-    },
-    "web#build": {
-      "dependsOn": [],
-      "env": ["NODE_ENV"]
+    "build-storybook": {
+      "dotEnv": [
+        ".env.production.local",
+        ".env.production",
+        ".env.local",
+        ".env"
+      ],
+      "outputs": ["storybook-static/**"]
     },
     "dev": {
-      "outputs": [],
-      "cache": false
+      "cache": false,
+      "persistent": true,
+      "dotEnv": [
+        ".env.development.local",
+        ".env.development",
+        ".env.local",
+        ".env"
+      ]
     },
-    "lint": {
-      "outputs": []
-    },
+    "lint": {},
     "test": {
-      "outputs": []
+      "dotEnv": [".env.test.local", ".env.test", ".env.local", ".env"]
     }
   }
 }
