@@ -1,1 +1,2 @@
-.env.local
+# Add all ignored files in this file alone to let prettier do it's work
+.*/
