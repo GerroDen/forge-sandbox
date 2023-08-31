@@ -16,13 +16,13 @@ const results = await validationProcessor.process(manifestFile);
 
 const errors = results.errors.filter(
   ({ message }) =>
-    !ignoredMessages.some((ignoreRegex) => ignoreRegex.test(message))
+    !ignoredMessages.some((ignoreRegex) => ignoreRegex.test(message)),
 );
 if (errors.length > 0) {
   console.error("Manifest has errors");
   for (let error of errors) {
     console.error(
-      `${manifestFile}:${error.line}:${error.column}: ${error.message}`
+      `${manifestFile}:${error.line}:${error.column}: ${error.message}`,
     );
     if (process.env.DEBUG === "1") {
       console.error(`${JSON.stringify(error)}`);

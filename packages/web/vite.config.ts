@@ -10,12 +10,12 @@ export default defineConfig(({ mode }) => {
   const forgeContextVars = Object.fromEntries(
     Object.entries(env)
       .filter(
-        ([key]) => key.startsWith("FORGE_CONTEXT_") || key.startsWith("FC_")
+        ([key]) => key.startsWith("FORGE_CONTEXT_") || key.startsWith("FC_"),
       )
       .map(([key, value]) => [
         key,
         value.replace("FORGE_CONTEXT_", "").replace("FC_", ""),
-      ])
+      ]),
   );
   return {
     plugins: [
@@ -35,7 +35,7 @@ export default defineConfig(({ mode }) => {
         ...(env.LOCAL_DEV === "true" && {
           "@forge/bridge": resolve(
             __dirname,
-            "src/__mocks__/local-forge-bridge.ts"
+            "src/__mocks__/local-forge-bridge.ts",
           ),
         }),
       },
@@ -66,14 +66,14 @@ export default defineConfig(({ mode }) => {
               console.info(
                 "Sending Request to the Target:",
                 proxyReq.method,
-                proxyReq.host + proxyReq.path
+                proxyReq.host + proxyReq.path,
               );
             });
             proxy.on("proxyRes", (proxyRes, req, _res) => {
               console.info(
                 "Received Response from the Target:",
                 proxyRes.statusCode,
-                req.url
+                req.url,
               );
             });
           },

@@ -7,7 +7,9 @@ export class CustomValidationProcessor extends FullValidationProcessor {
   constructor() {
     super();
     if (Array.isArray(this.validators)) {
-      this.validators = this.validators.filter((validator) => !(validator instanceof ResourcesValidator));
+      this.validators = this.validators.filter(
+        (validator) => !(validator instanceof ResourcesValidator),
+      );
     }
   }
 }

@@ -17,4 +17,3 @@ permissions:
     styles:
       # this seems to be necessary for react apps
       - unsafe-inline
-
