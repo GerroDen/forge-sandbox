@@ -1,0 +1,10 @@
+{
+  "name": "tools",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "npm-run-all 'lint:*'",
+    "lint:root-prettier": "prettier \"../{**/*,*}.{css,scss,html,js,cjs,ts,jsx,tsx,md,mdx,sh,json,yaml,yml,xml}\" --check --ignore-path ../.prettierignore --ignore-path ../.gitignore"
+  }
+}
