@@ -9,7 +9,7 @@
     "dev:local": "LOCAL_DEV=true vite",
     "lint": "npm-run-all 'lint:*'",
     "lint:css": "stylelint './src/**/*.{css,scss}'",
-    "lint:eslint": "eslint . --quiet --ext ts,tsx,cjs,js",
+    "lint:eslint": "eslint . --quiet --ext ts,tsx,cjs,js --cache",
     "lint:types": "tsc --noEmit",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
