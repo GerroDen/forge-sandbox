@@ -8,7 +8,6 @@ module.exports = {
     },
   ],
   rules: {
-    "prettier/prettier": true,
     "at-rule-no-unknown": null,
     "function-no-unknown": null,
     "scss/function-no-unknown": true,
