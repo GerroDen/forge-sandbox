@@ -20,7 +20,7 @@ interface RequireAccessParams {
   req: { context: Record<string, unknown> };
 }
 
-async function requireAccess({ req }: RequireAccessParams) {
+async function requireAccess(_params: RequireAccessParams) {
   const isAdmin = await isJiraGlobalAdmin();
   if (!isAdmin) {
     throw new Error("not permitted");
