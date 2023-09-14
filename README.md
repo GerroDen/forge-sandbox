@@ -2,7 +2,7 @@
 
 # Requirements
 
-- [Node LTS](https://nodejs.org/en/), currently Node 16 (Forge is bound to Node LTS)
+- [Node LTS](https://nodejs.org/en/), currently Node 18 (Forge is bound to Node LTS)
 - [Forge CLI](https://developer.atlassian.com/platform/forge/cli-reference/)
 
 # Initial Setup
