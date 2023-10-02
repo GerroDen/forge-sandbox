@@ -15,3 +15,6 @@ permissions:
       - unsafe-inline
     styles:
       - unsafe-inline
+app:
+  runtime:
+    snapshots: false
