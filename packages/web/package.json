@@ -17,9 +17,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@forge/bridge": "^2.6.0",
+    "@forge/bridge": "^3.0.0",
     "bridge": "*",
-    "i": "^0.3.7",
     "lodash-es": "^4.17.21",
     "react": "~16.14.0",
     "react-dom": "~16.14.0",
