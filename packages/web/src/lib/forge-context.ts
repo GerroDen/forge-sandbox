@@ -7,17 +7,10 @@ import { memoize } from "lodash-es";
  */
 export interface ForgeContext<EXTENSION extends Extension = Extension>
   extends FullContext {
-  accountId: string;
-  cloudId: string;
   environmentId: string;
   environmentType: string;
   extension: EXTENSION;
-  localId: string;
-  locale: string;
-  moduleKey: string;
-  siteUrl: string;
   theme: ThemeContext;
-  timezone: string;
 }
 
 interface ThemeContext {
