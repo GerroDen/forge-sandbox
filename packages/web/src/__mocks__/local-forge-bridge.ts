@@ -53,9 +53,9 @@ const bridge: DeepPartial<typeof bridgeType> = {
      * i.e.
      * http://localhost:3000/?moduleKey=main
      * or
-     * FORGE_CONTEXT_MODULEKEY=main yarn dev:local
+     * FORGE_CONTEXT_MODULEKEY=main npm run dev:local
      * or
-     * FC_MODULEKEY=main yarn dev:local
+     * FC_MODULEKEY=main npm run dev:local
      * is the same.
      * Query parameters have precedence over env vars and over defaults.
      * If no default is defined, the param itself is used as default value, which is only sufficient for string typed context parameters.

@@ -12,7 +12,7 @@ There are 3 ways to develop the UI:
 
 ## Forge tunnel
 
-To develop the whole app within an Atlassian Cloud context, use the `yarn forge-tunnel` and `yarn dev` in 2 terminals from the repository root dir.
+To develop the whole app within an Atlassian Cloud context, use the `npm run forge-tunnel` and `npm run dev` in 2 terminals from the repository root dir.
 This is also necessary when only working on the web UI.
 The use of `@forge/bridge` prohibits the use of a normal vite dev mode outside the tunnel workflow.
 
@@ -23,7 +23,7 @@ If you need more information about what storybook is, please read their docs: ht
 To start development with storybook use:
 
 ```
-yarn storybook
+npm run storybook
 ```
 
 This automatically opens a browser window.
@@ -34,7 +34,7 @@ In this mode, any changes to sources update the browser view like the vite dev s
 Storybook can create a static site from the sources.
 
 ```
-yarn build-storybook
+npm run build-storybook
 ```
 
 When finished, the result is available in the folder `storybook-static`.
@@ -127,7 +127,7 @@ ATLASSIAN_AUTH_TOKEN="abcdefghijklmnop"
 Then run the following command to run the local dev mode:
 
 ```
-yarn dev:local
+npm run dev:local
 ```
 
 ### How it works
@@ -189,9 +189,9 @@ To override the parameter `moduleKey` in the context:
 ```
 http://localhost:3000/?moduleKey=main
 # or
-FORGE_CONTEXT_MODULEKEY=main yarn dev:local
+FORGE_CONTEXT_MODULEKEY=main npm run dev:local
 # or
-FC_MODULEKEY=main yarn dev:local
+FC_MODULEKEY=main npm run dev:local
 ```
 
 To override a nested parameter like `extension.issue.key` in the context:
@@ -199,7 +199,7 @@ To override a nested parameter like `extension.issue.key` in the context:
 ```
 http://localhost:3000/?moduleKey=main
 # or
-FORGE_CONTEXT_EXTENSION_ISSUE_KEY=main yarn dev:local
+FORGE_CONTEXT_EXTENSION_ISSUE_KEY=main npm run dev:local
 # or
-FC_EXTENSION_ISSUE_KEY=main yarn dev:local
+FC_EXTENSION_ISSUE_KEY=main npm run dev:local
 ```
