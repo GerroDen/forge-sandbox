@@ -3,7 +3,10 @@ interface ShowDialogParams {
   onClose?: (response: unknown) => void;
 }
 
-export function showDialog({ payload, onClose }: ShowDialogParams): HTMLDialogElement {
+export function showDialog({
+  payload,
+  onClose,
+}: ShowDialogParams): HTMLDialogElement {
   const dialog = document.createElement("dialog");
   const content = document.createElement("div");
   const pre = document.createElement("pre");
