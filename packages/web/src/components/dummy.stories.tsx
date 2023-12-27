@@ -6,16 +6,16 @@ export default {
 };
 
 export function Base() {
-  return <Dummy foo={"hi"} />;
+  return <Dummy foo="hi" />;
 }
 
 export function Is() {
-  return <Dummy foo={"hi"} is />;
+  return <Dummy foo="hi" is />;
 }
 
 export function Children() {
   return (
-    <Dummy foo={"hi"}>
+    <Dummy foo="hi">
       foooooo
       <strong>öööö</strong>
       bar
