@@ -20,7 +20,6 @@
     "forge-register": "./forge-wrapper.sh register",
     "forge-restore": "./forge-wrapper.sh restore",
     "forge-tunnel": "./forge-wrapper.sh tunnel && cd app/dist && forge tunnel",
-    "forge-tunnel:local": "cd app/dist && FORGE_DEV_TUNNEL=true forge tunnel",
     "lint": "turbo run lint",
     "test": "turbo run test"
   },

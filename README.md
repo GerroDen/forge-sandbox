@@ -17,8 +17,7 @@ This sequence is [slightly different from the example from the Forge docs](https
 5. `npm run forge-deploy` deploys the backend functions to the Atlassian Forge platform
 6. `npm run forge-install` install the app into a specific Atlassian Cloud application instance, in this case a Jira Cloud instance
 7. `npm run forge-tunnel` start a tunnel for local development with hot-reload to the deployed application with docker ([see docs for more information](https://developer.atlassian.com/platform/forge/tunneling/))
-8. `npm run forge-tunnel:local` starts the same tunnel _without_ docker but requires Node 16
-9. `npm run dev` starts watcher and dev server during development
+8. `npm run dev` starts watcher and dev server during development
 
 # IDE setup
 
@@ -37,7 +36,7 @@ The app is only accessible to the developer. To show the app to someone else, it
 
 1. `npm run forge-deploy` is necessary if you changed the `manifest.yml`
 2. `npm run forge-install -- --upgrade` is necessary if you changed the `manifest.yml`
-3. `npm run forge-tunnel` or `npm run forge-tunnel:local` start the tunnel with hot-deployment of local code changes and hot-reload for UI
+3. `npm run forge-tunnel` start the tunnel with hot-deployment of local code changes and hot-reload for UI
 4. in a new terminal run `npm run dev` to watch forge workspace and start vite dev server
 
 # Deployment on staging
@@ -72,14 +71,7 @@ Runs lint in all workspaces.
 ## `forge-tunnel`
 
 Runs `forge-wrapper` with tunnel preparations.
-This is only necessary to prepare `forge tunnel` with docker.
 Run `dev` in a separate terminal to use the docker tunnel.
-
-## `forge-tunnel:local`
-
-In contrast to `forge-tunnel` this command actually starts the tunnel without docker.
-This command requires Node 16 (March 15th 2023)!
-Run `dev` in a separate terminal to use the local tunnel.
 
 # Forge Wrapper CLI `forge-wrapper.sh`
 
