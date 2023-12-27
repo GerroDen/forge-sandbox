@@ -1,6 +1,7 @@
 import { resolve } from "path";
 import { StorybookConfig } from "@storybook/react-vite";
 import remarkGfm from "remark-gfm";
+import { defineConfig, mergeConfig } from "vite";
 
 const rootDir = resolve(__dirname, "..");
 const srcDir = resolve(rootDir, "src");
@@ -28,12 +29,24 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+  async viteFinal(config) {
+    return mergeConfig(
+      config,
+      defineConfig({
+        resolve: {
+          alias: {
+            "@": srcDir,
+            "@sb": __dirname,
+            bridge: "bridge/src",
+            "@forge/bridge": resolve(srcDir, "__mocks__/local-forge-bridge.ts"),
+          },
+        },
+      }),
+    );
+  },
   docs: {
     autodocs: true,
     docsMode: true,
-  },
-  typescript: {
-    skipBabel: true,
   },
   core: {
     enableCrashReports: true,
