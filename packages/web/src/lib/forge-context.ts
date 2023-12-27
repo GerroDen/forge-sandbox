@@ -28,7 +28,8 @@ interface Extension {
  */
 export type AllExtensions = Extension &
   Partial<IssuePanelExtension> &
-  Partial<ProjectPageExtension>;
+  Partial<ProjectPageExtension> &
+  Partial<ModalExtension>;
 
 interface ContextProject {
   id: string;
@@ -58,6 +59,23 @@ export interface IssuePanelExtension extends Extension {
 export interface ProjectPageExtension extends Extension {
   project: ContextProject;
 }
+
+/**
+ * This extension is added when opening a modal via bridge.
+ *
+ * @see https://developer.atlassian.com/platform/forge/custom-ui-bridge/modal
+ */
+export interface ModalExtension<Context = CustomModalContext>
+  extends Extension {
+  modal: Context;
+}
+
+/**
+ * Adjust this type to match your custom modal contexts as passed to the constructor.
+ *
+ * @see https://developer.atlassian.com/platform/forge/custom-ui-bridge/modal
+ */
+export type CustomModalContext = unknown;
 
 function getTypedContext<EXTENSION extends Extension = Extension>(): Promise<
   ForgeContext<EXTENSION>
