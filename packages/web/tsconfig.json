@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/vite-react/tsconfig.json",
   "compilerOptions": {
+    "jsx": "react",
     "skipLibCheck": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -11,7 +12,7 @@
       "bridge/*": ["../bridge/src/*"]
     }
   },
-  "include": ["src", ".storybook"],
+  "include": ["src", ".storybook/**/*"],
   "references": [
     {
       "path": "./tsconfig.node.json"
